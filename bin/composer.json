@@ -1,0 +1,23 @@
+{
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Olivier MICHAUD",
+			"email": "olivier@micoli.org"
+		}
+	],
+	"require": {
+		"imagine/imagine": "^0.6.3",
+		"symfony/filesystem": "^3.1"
+	},
+	"minimum-stability": "dev",
+	"autoload": {
+		"psr-0": {
+			"App": "app"
+		}
+	},
+	"config": {
+		"github-protocols": ["ssh"],
+		"preferred-install": "auto"
+	}
+}

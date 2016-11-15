@@ -1,0 +1,16 @@
+RewriteEngine On
+
+ErrorDocument 404 /404.html
+
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^library/cache/(\w+)/(\d+x\d+)/(.*)\.(gif|jpg|png|jpeg)$ bin/ImageLibraryProcessor.php?action=$1&arg=&size=$3&file=$4.$5&type=$5&path=cache/$1/$2/$3 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^library/cache/(\w+)/(\w+)/(\d+x\d+)/(.*)\.(gif|jpg|png|jpeg)$ bin/ImageLibraryProcessor.php?action=$1&arg=$2&size=$3&file=$4.$5&type=$5&path=cache/$1/$2/$3 [L]
+
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_URI} \.(gif|jpg|flv|png|jpeg)$
+RewriteRule ^.*$ - [NC,L]
